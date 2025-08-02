@@ -1,17 +1,8 @@
 import { useState } from 'react';
-import { ReclaimProofRequest } from '@reclaimprotocol/js-sdk';
+import { ReclaimProofRequest, type Proof } from '@reclaimprotocol/js-sdk';
 import { QRCodeCanvas } from 'qrcode.react';
 
 const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-
-interface Proof {
-  identifier: string;
-  claimData: {
-    context: {
-      extractedParameters: string;
-    };
-  };
-}
 
 function InstagramVerification() {
   const [proofs, setProofs] = useState<Proof[] | null>(null);
@@ -51,7 +42,7 @@ function InstagramVerification() {
           if (Array.isArray(receivedProofs)) {
             proofsArray = receivedProofs;
           } else if (receivedProofs && typeof receivedProofs === 'object' && 'identifier' in receivedProofs) {
-            proofsArray = [receivedProofs as Proof];
+            proofsArray = [receivedProofs];
           }
           
           setProofs(proofsArray);
@@ -59,8 +50,15 @@ function InstagramVerification() {
           
           // Extract Instagram username from proof
           if (proofsArray && proofsArray.length > 0) {
-            const extractedData = JSON.parse(proofsArray[0].claimData.context.extractedParameters);
-            setVerifiedUsername(extractedData.username || extractedData.handle);
+            try {
+              const context = typeof proofsArray[0].claimData.context === 'string' 
+                ? JSON.parse(proofsArray[0].claimData.context)
+                : proofsArray[0].claimData.context;
+              const extractedData = JSON.parse(context.extractedParameters);
+              setVerifiedUsername(extractedData.username || extractedData.handle);
+            } catch (error) {
+              console.error('Error parsing proof data:', error);
+            }
           }
         },
         onError: (error) => {
