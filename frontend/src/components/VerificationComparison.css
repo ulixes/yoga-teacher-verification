@@ -1,0 +1,318 @@
+/* Verification Method Comparison Styles */
+.verification-comparison {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.comparison-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.comparison-header h2 {
+  color: #2d3748;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.comparison-header p {
+  color: #718096;
+  font-size: 1.1rem;
+}
+
+.method-selector {
+  margin-bottom: 3rem;
+}
+
+.method-selector h3 {
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.method-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.method-option {
+  position: relative;
+}
+
+.method-button {
+  width: 100%;
+  padding: 2rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.method-button:hover {
+  border-color: #cbd5e0;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.method-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.method-button.reclaim {
+  border-color: #e53e3e;
+  background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+}
+
+.method-button.reclaim:hover {
+  border-color: #c53030;
+}
+
+.method-button.vlayer {
+  border-color: #3182ce;
+  background: linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%);
+}
+
+.method-button.vlayer:hover {
+  border-color: #2c5282;
+}
+
+.method-info h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+}
+
+.method-info p {
+  color: #4a5568;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.status {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status.current {
+  background-color: #48bb78;
+  color: white;
+}
+
+.status.research {
+  background-color: #ed8936;
+  color: white;
+}
+
+.compare-button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.compare-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.compare-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.comparison-results {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.comparison-results h3 {
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.results-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.result-section {
+  background: #f7fafc;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
+
+.result-section h4 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.metrics-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.metrics-table th,
+.metrics-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.metrics-table th {
+  background: #edf2f7;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.metrics-table tr:last-child td {
+  border-bottom: none;
+}
+
+.winner.reclaim {
+  background: #fed7d7;
+  color: #c53030;
+  font-weight: 600;
+}
+
+.winner.vlayer {
+  background: #bee3f8;
+  color: #2c5282;
+  font-weight: 600;
+}
+
+.technical-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.tech-detail {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.tech-detail h5 {
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.tech-detail ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-detail li {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.result-section.errors {
+  border-color: #fed7d7;
+  background: #fffbfb;
+}
+
+.errors h4 {
+  color: #c53030;
+}
+
+.errors h5 {
+  color: #e53e3e;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.errors ul {
+  color: #c53030;
+  margin-left: 1rem;
+}
+
+.research-notes {
+  background: #f0fff4;
+  border: 1px solid #c6f6d5;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.research-notes h3 {
+  color: #22543d;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.note-section h4 {
+  color: #2f855a;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.note-section ul {
+  color: #276749;
+  margin-left: 1.5rem;
+}
+
+.note-section li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .verification-comparison {
+    padding: 1rem;
+  }
+  
+  .method-buttons,
+  .technical-comparison,
+  .notes-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .method-button {
+    padding: 1.5rem;
+  }
+  
+  .comparison-header h2 {
+    font-size: 2rem;
+  }
+}
